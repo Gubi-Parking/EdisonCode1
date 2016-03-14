@@ -21,7 +21,10 @@ while 1:
 
   if button1.value() and check:
     check = False
-    if pressed and not (same1):
+    if same1:
+      same1=False
+      pressed=False
+    elif pressed and not (same1):
       count+=1
       pressed= False
       same2=False
@@ -34,7 +37,10 @@ while 1:
   if button2.value() and check:
     
     check = False
-    if pressed and not(same2):
+    if same2:
+      same2=False
+      pressed=False
+    elif pressed and not(same2):
       count-=1
       pressed= False
       same1=False
