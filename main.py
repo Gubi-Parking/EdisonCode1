@@ -17,6 +17,6 @@ while 1:
       print("Prueba")
       count+=1
       print(count)
-      time.sleep(.001)
+      time.sleep(.1)
 
 del button
