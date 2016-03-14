@@ -12,7 +12,7 @@ count = 0;
 
 
 while 1:
-  check = True
+    check = True
     if button.value() AND check:
       print("Prueba")
       count+=1
