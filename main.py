@@ -14,13 +14,12 @@ check = True
 
 while 1:
 
-  if button.value():
-    print ("Presionado")
-    time.sleep(1)
-  else:
-    print("Suelto")
-    time.sleep(1)
-
+  if button.value() and check:
+    count +=1
+    print(count)
+    check = False
+  elif not(button.value()) and not(check):
+    check = true
 
 
 del button
