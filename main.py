@@ -5,7 +5,8 @@ import pyupm_buzzer as upmBuzzer
 import pyupm_i2clcd as lcd
 import time
 
-button = grove.GroveButton(4)
+button1 = grove.GroveButton(4)
+button2 = grove.GroveButton(3)
 count = 0;
 
 check = True
@@ -15,13 +16,19 @@ mylcd.setColor(0,0,255)
 
 while 1:
 
-  if button.value() and check:
+  if button1.value() and check:
     mylcd.setCursor(0,0)
     count +=1
     print(count)
     mylcd.write(str(count))
     check = False
-  elif not(button.value()) and not(check):
+  if button2.value() and check
+    mylcd.setCursor(0,0)
+    count --
+    print(count)
+    mylcd.write(str(count))
+    check = False
+  elif not(button1.value()) and not(check) and not (button2.value()):
     check = True
 
 
