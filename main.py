@@ -22,7 +22,7 @@ while 1:
     print(count)
     mylcd.write(str(count))
     check = False
-  if button2.value() and check
+  if button2.value() and check:
     mylcd.setCursor(0,0)
     count --
     print(count)
