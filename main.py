@@ -24,7 +24,7 @@ while 1:
     if pressed and not (same1):
       count+=1
       pressed= False
-      same1=False
+      same2=False
       mylcd.clear()
       mylcd.setCursor(0,0)
       mylcd.write(str(count))
@@ -37,7 +37,7 @@ while 1:
     if pressed and not(same2):
       count-=1
       pressed= False
-      same2=False
+      same1=False
       mylcd.clear()
       mylcd.setCursor(0,0)
       mylcd.write(str(count))
