@@ -13,7 +13,7 @@ check = True
 
 
 while 1:
-    
+    print(button.value())
     if button.value() and check:
       print("Prueba")
       count+=1
