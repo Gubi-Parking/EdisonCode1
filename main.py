@@ -20,10 +20,10 @@ while 1:
       print(count)
       check=False
       time.sleep(.1)
-    elif not(button.value) and not(check):
+    elif not(button.value()) and not(check):
       check=True
       print("Si entro")
-    print (button.value())
+
 
 
 del button
