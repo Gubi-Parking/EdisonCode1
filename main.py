@@ -6,7 +6,7 @@ import pyupm_i2clcd as lcd
 
 button = grove.GroveButton(4)
 
-if button.
+
 
 
 
