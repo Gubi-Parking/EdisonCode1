@@ -19,7 +19,7 @@ while 1:
     print(count)
     check = False
   elif not(button.value()) and not(check):
-    check = true
+    check = True
 
 
 del button
