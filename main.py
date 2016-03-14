@@ -6,7 +6,7 @@ import pyupm_i2clcd as lcd
 
 button = grove.GroveButton(4)
 
-
+count = 0;
 
 
 
@@ -14,5 +14,6 @@ while 1:
     
     if button.value():
       print("Prueba")
+      count+=1
 
 del button
