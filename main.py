@@ -23,7 +23,7 @@ while 1:
     elif not(button.value) and not(check):
       check=True
       print("Si entro")
-    print(check)
+    print (button.value())
 
 
 del button
