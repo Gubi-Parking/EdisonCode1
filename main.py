@@ -11,6 +11,8 @@ count = 0;
 
 check = True
 pressed=False
+same1=False
+same2=False
 mylcd = lcd.Jhd1313m1(0, 0x3E, 0x62)
 mylcd.setColor(0,0,255)
 
@@ -19,25 +21,29 @@ while 1:
 
   if button1.value() and check:
     check = False
-    if pressed:
+    if pressed and not (same):
       count+=1
       pressed= False
+      same=False
       mylcd.clear()
       mylcd.setCursor(0,0)
       mylcd.write(str(count))
     else:
       pressed=True
+      same=True
   if button2.value() and check:
     
     check = False
-    if pressed:
+    if pressed and not(same2):
       count-=1
       pressed= False
+      same=False
       mylcd.clear()
       mylcd.setCursor(0,0)
       mylcd.write(str(count))
     else:
       pressed=True
+      same2=True
   elif not(button1.value()) and not(check) and not (button2.value()):
     check = True
 
