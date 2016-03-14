@@ -17,12 +17,14 @@ mylcd.setColor(0,0,255)
 while 1:
 
   if button1.value() and check:
+    mylcd.clear()
     mylcd.setCursor(0,0)
     count +=1
     print(count)
     mylcd.write(str(count))
     check = False
   if button2.value() and check:
+    mylcd.clear()
     mylcd.setCursor(0,0)
     count -=1
     print(count)
