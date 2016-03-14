@@ -15,5 +15,6 @@ while 1:
     if button.value():
       print("Prueba")
       count+=1
+      print(count)
 
 del button
