@@ -21,23 +21,23 @@ while 1:
 
   if button1.value() and check:
     check = False
-    if pressed and not (same):
+    if pressed and not (same1):
       count+=1
       pressed= False
-      same=False
+      same1=False
       mylcd.clear()
       mylcd.setCursor(0,0)
       mylcd.write(str(count))
     else:
       pressed=True
-      same=True
+      same1=True
   if button2.value() and check:
     
     check = False
     if pressed and not(same2):
       count-=1
       pressed= False
-      same=False
+      same2=False
       mylcd.clear()
       mylcd.setCursor(0,0)
       mylcd.write(str(count))
