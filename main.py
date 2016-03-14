@@ -13,7 +13,7 @@ check = True
 
 
 while 1:
-    print(button.value())
+
     if button.value() and check:
       print("Prueba")
       count+=1
@@ -22,6 +22,7 @@ while 1:
       time.sleep(.1)
     elif not(button.value()) and not(check):
       check=True
+      time.sleep(.1)
       
 
 
