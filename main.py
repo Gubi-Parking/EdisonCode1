@@ -22,6 +22,7 @@ while 1:
       time.sleep(.1)
     elif not(button.value) and not(check):
       check=True
+      print("Sí entro")
 
 
 del button
