@@ -46,6 +46,8 @@ while 1:
       count+=1 #count increases since a car entered the zone
       pressed= False #pressed goes back to default
       same2=False #we reset the opposite same
+      mylcd.clear()
+      mylcd.setCursor(0,0)
       #we use a thread to update the database so locally the intel edison can still change its own value.
       #we do this to prevent the intel edison from getting stuck on the update possibly
       try:
@@ -67,6 +69,8 @@ while 1:
       count-=1 #decrease the number of cars since the car that passed was heading outside the zone
       pressed= False #reset the pressed
       same1=False #and the same1
+      mylcd.clear()
+      mylcd.setCursor(0,0)
       #thread used for update of the firebase database
       try:
         thread.start_new_thread( update, ("Thread-2",firebase,count ) )
@@ -94,6 +98,8 @@ while 1:
       count+=1 #count increases since a car entered the zone
       pressedb= False #pressed goes back to default
       same2b=False #we reset the opposite same
+      mylcd.clear()
+      mylcd.setCursor(0,0)
     
       
       #we use a thread to update the database so locally the intel edison can still change its own value.
@@ -117,6 +123,8 @@ while 1:
       count-=1 #decrease the number of cars since the car that passed was heading outside the zone
       pressedb= False #reset the pressed
       same1b=False #and the same1
+      mylcd.clear()
+      mylcd.setCursor(0,0)
  
       #thread used for update of the firebase database
       try:
@@ -142,10 +150,6 @@ while 1:
 
   elif count>(total-5):
     mylcd.setColor(255,0,0)
-
-
-  mylcd.clear()
-  mylcd.setCursor(0,0)
   
   if total-count>0:
 
