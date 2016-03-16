@@ -56,7 +56,7 @@ mylcd = lcd.Jhd1313m1(0, 0x3E, 0x62) #make mylcd reference the lcd screen connec
 mylcd.setColor(0,255,0) #set color of lcd screen to blue
 mylcd.clear() #clear the screen from any info printed before
 mylcd.setCursor(0,0) #set cursor at the first character space
-mylcd.write(str(count)) #write the count retrieved from firebase
+mylcd.write(str(total-count)) #write the count retrieved from firebase
 
 
 while 1:
