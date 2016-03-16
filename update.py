@@ -8,6 +8,30 @@ import thread
 def update(threadName,firebase,count):
   firebase.patch('/ITESM/Zone1', {'Busy':count})
 
+def writeScreen(mylcd,total,count):
+  mylcd.clear()
+  mylcd.setCursor(0,0)
+  if total-count>0:
+
+    mylcd.write(str(total-count))
+
+  else:
+    mylcd.write("Max capacity!!1!")
+
+def screenColor(mylcd,total,count):
+  if count<total/2:
+    
+    mylcd.setColor(0,255,0)
+
+  elif count>total/2 and count<(total-5):
+    #all necesarry stuff to print on the lcd screen the count
+    mylcd.setColor(255,255,0)
+    
+
+  elif count>(total-5):
+    mylcd.setColor(255,0,0)
+
+
 #define the firebase database from which the program will be working
 firebase = firebase.FirebaseApplication('https://gubi.firebaseio.com', None)
 #count is equals to the property in the database "lugares"
@@ -46,8 +70,8 @@ while 1:
       count+=1 #count increases since a car entered the zone
       pressed= False #pressed goes back to default
       same2=False #we reset the opposite same
-      mylcd.clear()
-      mylcd.setCursor(0,0)
+      writeScreen(mylcd,total,count)
+      screenColor(mylcd,total,count)
       #we use a thread to update the database so locally the intel edison can still change its own value.
       #we do this to prevent the intel edison from getting stuck on the update possibly
       try:
@@ -69,8 +93,8 @@ while 1:
       count-=1 #decrease the number of cars since the car that passed was heading outside the zone
       pressed= False #reset the pressed
       same1=False #and the same1
-      mylcd.clear()
-      mylcd.setCursor(0,0)
+      writeScreen(mylcd,total,count)
+      screenColor(mylcd,total,count)
       #thread used for update of the firebase database
       try:
         thread.start_new_thread( update, ("Thread-2",firebase,count ) )
@@ -88,7 +112,7 @@ while 1:
 
   #Other bump
 
-
+  '''
   if button1b.value() and checkb: #if button is pressed and it's not the case of a press and hold
     checkb = False #check changes to false to avoid a press and hold
     if same1b: #if it was pressed twice in a row, it changes the values back to normal
@@ -98,9 +122,8 @@ while 1:
       count+=1 #count increases since a car entered the zone
       pressedb= False #pressed goes back to default
       same2b=False #we reset the opposite same
-      mylcd.clear()
-      mylcd.setCursor(0,0)
-    
+      writeScreen(mylcd,total,count)
+      screenColor(mylcd,total,count)
       
       #we use a thread to update the database so locally the intel edison can still change its own value.
       #we do this to prevent the intel edison from getting stuck on the update possibly
@@ -123,8 +146,8 @@ while 1:
       count-=1 #decrease the number of cars since the car that passed was heading outside the zone
       pressedb= False #reset the pressed
       same1b=False #and the same1
-      mylcd.clear()
-      mylcd.setCursor(0,0)
+      writeScreen(mylcd,total,count)
+      screenColor(mylcd,total,count)
  
       #thread used for update of the firebase database
       try:
@@ -138,25 +161,10 @@ while 1:
   elif not(button1b.value()) and not(checkb) and not (button2b.value()):
     checkb = True
     #change check to true whenever the button has been released
+   ''' 
 
-  if count<total/2:
-    
-    mylcd.setColor(0,255,0)
-
-  elif count>total/2 and count<(total-5):
-    #all necesarry stuff to print on the lcd screen the count
-    mylcd.setColor(255,255,0)
-    
-
-  elif count>(total-5):
-    mylcd.setColor(255,0,0)
   
-  if total-count>0:
-
-    mylcd.write(str(total-count))
-
-  else:
-    mylcd.write("Max capacity!!1!")
+  
 
     
 del button1
